@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+	"name": "My Auto Filler",
+	"description": "AutoFill app for DHIS2",
+	"version": "1.0",
+	"browser_action": {
+		"default_icon": "icon.png"
+		
+	},
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"clipboardWrite"
+		
+	],
+	"background":{
+		"persistent":false,
+		"scripts": ["background.js"]
+		
+	},
+	
+	"content_scripts": [
+		{
+		  "js": ["jquery-3.5.1.js","angular.js","message-script.js"],
+		  "matches": ["<all_urls>"],
+		  "match_about_blank": true,
+		  "all_frames": true,
+		  "run_at": "document_end"
+		}
+	  ]
+}
